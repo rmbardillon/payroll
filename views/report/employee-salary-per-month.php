@@ -71,7 +71,7 @@ $pdf->Cell(70,10,'Full Name',1,0,'C');
 $pdf->Cell(37,10,'Total Hours Worked',1,0,'C');
 $pdf->Cell(20,10,'Salary Rate',1,0,'C');
 $pdf->Cell(20,10,'Total Salary',1,0,'C');
-$pdf->Cell(30,10,'Total Salary',1,1,'C');
+$pdf->Cell(30,10,'Month',1,1,'C');
 
 if(isset($_GET['employeeId'])){
     $i = 1;
