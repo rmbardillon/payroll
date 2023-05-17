@@ -7,3 +7,4 @@ const USER_CONTROLLER = HOST + '/' + PATH_TO_CONTROLLER + '/UserController.php';
 const EMPLOYEE_CONTROLLER = HOST + '/' + PATH_TO_CONTROLLER + '/EmployeeController.php';
 const CLOCKING_CONTROLLER = HOST + '/' + PATH_TO_CONTROLLER + '/ClockingController.php';
 const ATTENDANCE_CONTROLLER = HOST + '/' + PATH_TO_CONTROLLER + '/AttendanceController.php';
+const REPORT_CONTROLLER = HOST + '/' + PATH_TO_CONTROLLER + '/ReportController.php';

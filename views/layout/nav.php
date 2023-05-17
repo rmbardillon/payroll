@@ -4,7 +4,8 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link text-center <?php if($page == "home"){echo("active");} ?>" href="home.php" style="width: 90px;border-radius: 20px;">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-center <?php if($page == "manage"){echo("active");} ?>" href="manage.php" style="width: 90px;">Manage</a></li>
-                <!-- <li class="nav-item"><a class="nav-link text-center <?php if($page == "attendance"){echo("active");} ?>" href="attendance.php" style="width: 90px;">Attendance</a></li> -->
+                <li class="nav-item"><a class="nav-link text-center <?php if($page == "attendance"){echo("active");} ?>" href="attendance.php" style="width: 90px;">Attendance</a></li>
+                <li class="nav-item"><a class="nav-link text-center <?php if($page == "report"){echo("active");} ?>" href="generate-report.php" style="width: 90px;">Reports</a></li>
                 <li class="nav-item"><a class="nav-link text-center <?php if($page == "clocking"){echo("active");} ?>" href="clocking.php" style="width: 90px;">Clocking</a></li>
             </ul>
             <ul class="navbar-nav">

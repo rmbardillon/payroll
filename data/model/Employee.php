@@ -69,6 +69,38 @@
             return $data;
         }
 
+        public function getEmployeeAttendanceById($employeeId)
+        {
+            $sql = "SELECT *, CONCAT(FIRST_NAME,' ',LAST_NAME) AS FULL_NAME, DATE_FORMAT(DATE, '%M %D, %Y') AS DATE, DATE_FORMAT(TIME_IN, '%h:%i %p') AS TIME_IN, DATE_FORMAT(TIME_OUT, '%h:%i %p') AS TIME_OUT
+                    FROM employee
+                    LEFT JOIN attendance ON employee.EMPLOYEE_ID = attendance.EMPLOYEE_ID
+                    WHERE employee.EMPLOYEE_ID = '$employeeId'";
+            $result = $this->connection->query($sql);
+            $data = [];
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+            return $data;
+        }
+
+        public function getAllEmployeesSalaryReportPerMonth($employeeId)
+        {
+            $sql = "SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) AS FULL_NAME,
+                    SUM(TOTAL_HOURS_WORKED) AS TOTAL_HOURS_WORKED,
+                    SALARY_RATE,
+                    SALARY_RATE * SUM(TOTAL_HOURS_WORKED) AS TOTAL_SALARY,
+                    DATE_FORMAT(DATE, '%Y-%m') AS MONTH
+                    FROM employee
+                    LEFT JOIN attendance ON employee.EMPLOYEE_ID = attendance.EMPLOYEE_ID
+                    WHERE employee.EMPLOYEE_ID = '$employeeId'
+                    GROUP BY employee.EMPLOYEE_ID, MONTH;";
+            $result = $this->connection->query($sql);
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
         public function updateEmployee($request)
         {
             $employeeId = $request['employeeId'];
