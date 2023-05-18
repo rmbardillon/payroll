@@ -12,7 +12,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <div class="dropdown"><a class="dropdown-toggle nav-link text-center" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="width: 90px;">Profile</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="" onclick="logout()">Logout</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="change-password.php">Change Password</a><a class="dropdown-item" href="" onclick="logout()">Logout</a></div>
                     </div>
                 </li>
             </ul>

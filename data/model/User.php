@@ -216,5 +216,27 @@
 
             return $result;
         }
+
+        public function checkOldPassword($request)
+        {
+            $username = $request['username'];
+            $oldPassword = $request['oldPassword'];
+
+            $sql = "SELECT PASSWORD FROM administrator WHERE ADMINISTRATOR_ID = ?";
+
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+
+            $db_password = "";
+            $stmt->bind_result($db_password);
+            $stmt->fetch();
+
+            if ($oldPassword == $db_password) {
+                return "Validated";
+            } else {
+                return "Invalid Password";
+            }
+        }
     }
 ?>
