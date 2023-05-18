@@ -30,7 +30,7 @@
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
                 <span class="text-danger" id="confirmPasswordError"></span>
             </div>
-            <button type="button" class="btn btn-primary" onclick="changePassword.changePassword();">Submit</button>
+            <button type="button" class="btn btn-primary mt-3 w-100" onclick="changePassword.changePassword();">Submit</button>
         </form>
     </div>
 <?php include_once("../layout/scripts.php") ?>
