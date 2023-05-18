@@ -11,12 +11,13 @@
         </div>
         <div class="row">
             <div class="col">
-                <form action="">
+                <form novalidate>
                     <div class="input-group">
-                        <span class="input-group-text">Email</span>
-                        <input class="form-control" type="email" id="employeeEmail" placeholder="email@email.com">
+                        <label for="employeeEmail" class="input-group-text">Email</label>
+                        <input class="form-control" type="email" id="employeeEmail" placeholder="email@email.com" autofocus required>
                     </div>
-                    <button class="btn btn-success mt-3 w-100" type="button" id="forgotPassword">Forgot Password</button>
+                    <button class="btn btn-success mt-3 mb-1 w-100" type="button" id="forgotPassword">Forgot Password</button>
+                    <a href="login.php" class="text-secondary">Go to Login</a>
                 </form>
             </div>
         </div>

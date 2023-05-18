@@ -193,10 +193,15 @@
 
         public function sendEmail($email)
         {
+            $isEmailExists = $this->checkUserEmail($email);
+            if (!$isEmailExists) {
+                return "Email does not exist";
+            }
             $password = $this->generatePassword();
             $message = "Your new password is: $password";
             $this->email("Lucas Pizza", "Reset Password", "lucaspizza@gmail.com", "Administrator", $email, $message);
-            $this->resetPassword($email, $password);
+            $result = $this->resetPassword($email, $password);
+            return $result;
         }
 
         public function resetPassword($email, $password)
@@ -215,6 +220,19 @@
             $this->connection->close();
 
             return $result;
+        }
+
+        public function checkUserEmail($email)
+        {
+            $sql = "SELECT * FROM administrator WHERE EMAIL = '$email'";
+            $result = $this->connection->query($sql);
+            $data = [];
+            if ($result->num_rows > 0) {
+                $data = $result->fetch_assoc();
+            } else {
+                return false;
+            }
+            return $data;
         }
 
         public function checkOldPassword($request)
