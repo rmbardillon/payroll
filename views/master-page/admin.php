@@ -4,7 +4,7 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
+            <div class="col col-8">
                 <div class="user__table-wrapper">
                     <h2 class="section__sub-title">List of Accounts</h2>
 
@@ -12,11 +12,11 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th class="no-sort">Actions</th>
+                                    <th class="col-1">#</th>
+                                    <th class="col-4">Name</th>
+                                    <th class="col-3">Email</th>
+                                    <th class="col-2">Username</th>
+                                    <th class="col-2 no-sort">Actions</th>
                                 </tr>
                             </thead>
                             <tbody id="adminTable">

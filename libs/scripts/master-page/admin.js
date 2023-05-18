@@ -349,6 +349,10 @@ const Admin = (() => {
         $('#txt_email').val("");
         $('#txt_newpassword').val("");
         $('#txt_confirm_password').val("");
+        $('#txt_newpassword').show()
+        $('#txt_confirm_password').show()
+        $('#pwd').show()
+        $('#confirmPwd').show()
 
         $('.form-control').prop("disabled", false);
 
