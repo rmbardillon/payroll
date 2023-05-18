@@ -71,10 +71,14 @@
 
         public function getEmployeeAttendanceById($employeeId)
         {
-            $sql = "SELECT *, CONCAT(FIRST_NAME,' ',LAST_NAME) AS FULL_NAME, DATE_FORMAT(DATE, '%M %D, %Y') AS DATE, DATE_FORMAT(TIME_IN, '%h:%i %p') AS TIME_IN, DATE_FORMAT(TIME_OUT, '%h:%i %p') AS TIME_OUT
+            $sql = "SELECT *, CONCAT(FIRST_NAME,' ',LAST_NAME) AS FULL_NAME, 
+                    DATE_FORMAT(DATE, '%M %D, %Y') AS FORMATTED_DATE, 
+                    DATE_FORMAT(TIME_IN, '%h:%i %p') AS TIME_IN, 
+                    DATE_FORMAT(TIME_OUT, '%h:%i %p') AS TIME_OUT
                     FROM employee
                     LEFT JOIN attendance ON employee.EMPLOYEE_ID = attendance.EMPLOYEE_ID
-                    WHERE employee.EMPLOYEE_ID = '$employeeId'";
+                    WHERE employee.EMPLOYEE_ID = '$employeeId'
+                    ORDER BY attendance.DATE ASC;";
             $result = $this->connection->query($sql);
             $data = [];
             if ($result->num_rows > 0) {

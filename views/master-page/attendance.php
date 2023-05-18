@@ -13,6 +13,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th class="col-2">No.</th>
                                 <th class="col-2">Date</th>
                                 <th class="col-2">Time In</th>
                                 <th class="col-2">Time Out</th>

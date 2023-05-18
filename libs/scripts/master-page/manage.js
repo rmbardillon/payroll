@@ -154,7 +154,7 @@ const Manage = (() => {
                 $("#lastNameView").html(response[0]['LAST_NAME']);
                 $("#birthdayView").html(response[0]['BIRTHDAY']);
                 $("#genderView").html(response[0]['GENDER']);
-                $("#salaryView").html(response[0]['SALARY_RATE']);
+                $("#salaryView").html("₱" + response[0]['SALARY_RATE'] + "/ Day");
                 $("#contactNumberView").html(response[0]['CONTACT_NUMBER']);
                 $("#emailAddressView").html(response[0]['EMAIL']);
                 $("#streetView").html(response[0]['STREET']);

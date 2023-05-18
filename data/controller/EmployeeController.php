@@ -77,13 +77,16 @@
         $result = $Employee->getEmployeeAttendanceById($employeeId);
 
         $table_data = '';
+        $counter = 1;
         foreach ($result as $employee) {
             $table_data .= '<tr>';
-            $table_data .= '<td>' . $employee['DATE'] . '</td>';
+            $table_data .= '<td>' . $counter . '</td>';
+            $table_data .= '<td>' . $employee['FORMATTED_DATE'] . '</td>';
             $table_data .= '<td>' . $employee['TIME_IN'] . '</td>';
             $table_data .= '<td>' . $employee['TIME_OUT'] . '</td>';
             $table_data .= '<td>' . $employee['TOTAL_HOURS_WORKED'] . '</td>';
             $table_data .= '</tr>';
+            $counter++;
         }
 
         $response = [

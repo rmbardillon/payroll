@@ -51,6 +51,7 @@
                 <input type="checkbox" class="form-check-input" id="show-password">
                 <label class="form-check-label" for="show-password">Show Password</label>
             </div>
+            <a href="forgot-password.php" class="text-secondary">Forgot Password?</a>
             <button class="btn btn-primary w-100 mb-2" type="submit" id="login">Login</button>
         </form>
 
