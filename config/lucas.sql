@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 03:58 PM
+-- Generation Time: May 19, 2023 at 03:28 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -28,8 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `administrator` (
-  `ADMINISTRATOR_ID` int(11) NOT NULL,
-  `USERNAME` varchar(64) NOT NULL,
+  `ADMINISTRATOR_ID` varchar(16) NOT NULL DEFAULT replace(convert(uuid() using utf8mb4),'-',''),
+  `FIRST_NAME` varchar(64) NOT NULL,
+  `LAST_NAME` varchar(64) NOT NULL,
+  `EMAIL` varchar(64) NOT NULL,
+  `USERNAME` varchar(16) NOT NULL,
   `PASSWORD` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,8 +40,8 @@ CREATE TABLE `administrator` (
 -- Dumping data for table `administrator`
 --
 
-INSERT INTO `administrator` (`ADMINISTRATOR_ID`, `USERNAME`, `PASSWORD`) VALUES
-(1, 'admin', 'admin123');
+INSERT INTO `administrator` (`ADMINISTRATOR_ID`, `FIRST_NAME`, `LAST_NAME`, `EMAIL`, `USERNAME`, `PASSWORD`) VALUES
+('d7313390f52011ed', 'ROMEO JR', 'BARDILLON', 'romsky.bardillon@gmail.com', 'adminrbardillon', 'Owner@001');
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,8 @@ INSERT INTO `attendance` (`ATTENDANCE_ID`, `EMPLOYEE_ID`, `DATE`, `TIME_IN`, `TI
 (303, 11, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
 (304, 11, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
 (305, 11, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(306, 1, '2023-04-17', '2023-04-17 09:36:24', '2023-04-17 21:36:50', 12);
+(306, 1, '2023-04-17', '2023-04-17 09:36:24', '2023-04-17 21:36:50', 12),
+(307, 1, '2023-05-18', '2023-05-18 08:21:29', '2023-05-18 08:58:48', 1);
 
 -- --------------------------------------------------------
 
@@ -162,16 +166,10 @@ ALTER TABLE `employee`
 --
 
 --
--- AUTO_INCREMENT for table `administrator`
---
-ALTER TABLE `administrator`
-  MODIFY `ADMINISTRATOR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
+  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT for table `employee`
