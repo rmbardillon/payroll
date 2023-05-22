@@ -26,16 +26,29 @@
                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
             $stmt = $this->connection->prepare($sql);
             $stmt->bind_param("ssssssssssss", $firstName, $middleName, $lastName, $birthday, $gender, $salary, $contactNumber, $emailAddress, $street, $barangay, $municipality, $province);
-            
+
             $result = '';
-            
+
             if ($stmt->execute() === TRUE) {
-                $result = "Successfully Save";
+                // Retrieve the auto-incremented ID
+                $employeeId = $stmt->insert_id;
+
+                $sql = "INSERT INTO salary_history(EMPLOYEE_ID, SALARY_RATE)
+                        VALUES(?,?);";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->bind_param("ss", $employeeId, $salary);
+
+                if ($stmt->execute() === TRUE) {
+                    $result = "Successfully Save";
+                } else {
+                    $result = "Error: <br>" . $this->connection->error;
+                }
             } else {
                 $result = "Error: <br>" . $this->connection->error;
             }
 
             $this->connection->close();
+
 
             return $result;
         }
@@ -43,7 +56,8 @@
         public function getEmployee()
         {
             $sql = "SELECT *, CONCAT(FIRST_NAME,' ',LAST_NAME) AS FULL_NAME 
-                    FROM employee";
+                    FROM employee
+                    WHERE STATUS = 'ACTIVE'";
             $result = $this->connection->query($sql);
             $data = [];
             if ($result->num_rows > 0) {
@@ -58,7 +72,7 @@
         {
             $sql = "SELECT *, CONCAT(FIRST_NAME,' ',LAST_NAME) AS FULL_NAME
                     FROM employee
-                    WHERE employee.EMPLOYEE_ID = '$employeeId'";
+                    WHERE STATUS = 'ACTIVE' AND employee.EMPLOYEE_ID = '$employeeId'";
             $result = $this->connection->query($sql);
             $data = [];
             if ($result->num_rows > 0) {
@@ -77,7 +91,7 @@
                     DATE_FORMAT(TIME_OUT, '%h:%i %p') AS TIME_OUT
                     FROM employee
                     LEFT JOIN attendance ON employee.EMPLOYEE_ID = attendance.EMPLOYEE_ID
-                    WHERE employee.EMPLOYEE_ID = '$employeeId'
+                    WHERE STATUS = 'ACTIVE' AND  employee.EMPLOYEE_ID = '$employeeId'
                     ORDER BY attendance.DATE ASC;";
             $result = $this->connection->query($sql);
             $data = [];
@@ -98,7 +112,7 @@
                     DATE_FORMAT(DATE, '%Y-%m') AS MONTH
                     FROM employee
                     LEFT JOIN attendance ON employee.EMPLOYEE_ID = attendance.EMPLOYEE_ID
-                    WHERE employee.EMPLOYEE_ID = '$employeeId'
+                    WHERE STATUS = 'ACTIVE' AND employee.EMPLOYEE_ID = '$employeeId'
                     GROUP BY employee.EMPLOYEE_ID, MONTH;";
             $result = $this->connection->query($sql);
 
@@ -123,10 +137,20 @@
 
             $sql = "UPDATE employee
                     SET FIRST_NAME = '$firstName', MIDDLE_NAME = '$middleName', LAST_NAME = '$lastName', GENDER = '$gender', SALARY_RATE = '$salary', CONTACT_NUMBER = '$contactNumber', EMAIL = '$emailAddress', BIRTHDAY = '$birthday', STREET = '$street', BARANGAY = '$barangay', MUNICIPALITY = '$municipality', PROVINCE = '$province'
-                    WHERE EMPLOYEE_ID = '$employeeId'";
+                    WHERE STATUS = 'ACTIVE' AND EMPLOYEE_ID = '$employeeId'";
             $result = $this->connection->query($sql);
             $data = [];
             if ($result === TRUE) {
+                $sql = "INSERT INTO salary_history(EMPLOYEE_ID, SALARY_RATE)
+                        VALUES(?,?);";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->bind_param("ss", $employeeId, $salary);
+
+                if ($stmt->execute() === TRUE) {
+                    $result = "Successfully Save";
+                } else {
+                    $result = "Error: <br>" . $this->connection->error;
+                }
                 $data = "Successfully Update";
             } else {
                 $data = "Error: <br>" . $this->connection->error;
@@ -137,8 +161,8 @@
 
         public function deleteEmployee($employeeId)
         {
-            $sql = "DELETE FROM employee
-                    WHERE EMPLOYEE_ID = '$employeeId'";
+            $sql = "UPDATE employee SET STATUS = 'INACTIVE'
+                    WHERE STATUS = 'ACTIVE' AND EMPLOYEE_ID = '$employeeId'";
             $result = $this->connection->query($sql);
             $data = [];
             if ($result === TRUE) {

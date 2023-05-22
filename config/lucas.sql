@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 03:28 AM
+-- Generation Time: May 22, 2023 at 02:26 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -63,41 +63,8 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`ATTENDANCE_ID`, `EMPLOYEE_ID`, `DATE`, `TIME_IN`, `TIME_OUT`, `TOTAL_HOURS_WORKED`) VALUES
-(3, 1, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(4, 1, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(5, 1, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(32, 2, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(33, 2, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(34, 2, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(63, 3, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(64, 3, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(65, 3, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(93, 4, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(94, 4, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(95, 4, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(123, 5, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(124, 5, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(125, 5, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(153, 6, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(154, 6, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(155, 6, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(183, 7, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(184, 7, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(185, 7, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(213, 8, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(214, 8, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(215, 8, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(243, 9, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(244, 9, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(245, 9, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(273, 10, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(274, 10, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(275, 10, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(303, 11, '2023-05-01', '2023-05-01 07:00:00', '2023-05-01 23:00:00', 16),
-(304, 11, '2023-05-02', '2023-05-02 07:00:00', '2023-05-02 23:00:00', 16),
-(305, 11, '2023-05-03', '2023-05-03 07:00:00', '2023-05-03 23:00:00', 16),
-(306, 1, '2023-04-17', '2023-04-17 09:36:24', '2023-04-17 21:36:50', 12),
-(307, 1, '2023-05-18', '2023-05-18 08:21:29', '2023-05-18 08:58:48', 1);
+(1, 1, '2023-05-21', '2023-05-21 14:01:44', '2023-05-21 22:01:47', 8),
+(2, 1, '2023-05-26', '2023-05-26 14:01:44', '2023-05-26 23:01:47', 8);
 
 -- --------------------------------------------------------
 
@@ -118,25 +85,40 @@ CREATE TABLE `employee` (
   `STREET` varchar(64) NOT NULL,
   `BARANGAY` varchar(64) NOT NULL,
   `MUNICIPALITY` varchar(64) NOT NULL,
-  `PROVINCE` varchar(64) NOT NULL
+  `PROVINCE` varchar(64) NOT NULL,
+  `STATUS` varchar(16) NOT NULL DEFAULT 'ACTIVE'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`EMPLOYEE_ID`, `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `BIRTHDAY`, `GENDER`, `SALARY_RATE`, `CONTACT_NUMBER`, `EMAIL`, `STREET`, `BARANGAY`, `MUNICIPALITY`, `PROVINCE`) VALUES
-(1, 'ROMEO JR', 'MONTEALEGRE', 'BARDILLON', '2001-12-31', 'Male', '50.00', '09760657071', 'romsky.bardillon@gmail.com', 'OAK', 'TAGAPO', 'SANTA ROSA', 'LAGUNA'),
-(2, 'John', 'Doe', 'Smith', '1990-05-15', 'Male', '40.00', '0987654321', 'john.doe@example.com', 'Maple', 'Sunnyvale', 'California', 'USA'),
-(3, 'Jane', 'Alice', 'Johnson', '1985-09-20', 'Female', '45.50', '0912345678', 'jane.johnson@example.com', 'Oak', 'Brooklyn', 'New York', 'USA'),
-(4, 'Michael', 'James', 'Williams', '1992-02-10', 'Male', '42.75', '0943215678', 'michael.williams@example.com', 'Cedar', 'Birmingham', 'Alabama', 'USA'),
-(5, 'Emily', 'Grace', 'Anderson', '1988-07-03', 'Female', '47.25', '0918765432', 'emily.anderson@example.com', 'Pine', 'Toronto', 'Ontario', 'Canada'),
-(6, 'Daniel', 'Robert', 'Brown', '1994-11-28', 'Male', '38.50', '0987654321', 'daniel.brown@example.com', 'Birch', 'Melbourne', 'Victoria', 'Australia'),
-(7, 'Olivia', 'Sophia', 'Miller', '1991-06-18', 'Female', '44.00', '0912345678', 'olivia.miller@example.com', 'Willow', 'London', 'England', 'United Kingdom'),
-(8, 'Alexander', 'William', 'Jones', '1993-09-05', 'Male', '46.75', '0943215678', 'alexander.jones@example.com', 'Ash', 'Glasgow', 'Scotland', 'United Kingdom'),
-(9, 'Charlotte', 'Ava', 'Davis', '1987-04-11', 'Female', '41.25', '0918765432', 'charlotte.davis@example.com', 'Elm', 'Paris', 'Île-de-France', 'France'),
-(10, 'Liam', 'Noah', 'Martinez', '1996-01-25', 'Male', '36.50', '0987654321', 'liam.martinez@example.com', 'Maple', 'Sydney', 'New South Wales', 'Australia'),
-(11, 'Emma', 'Mia', 'Lopez', '1990-08-09', 'Female', '43.00', '0912345678', 'emma.lopez@example.com', 'Oak', 'Madrid', 'Community of Madrid', 'Spain');
+INSERT INTO `employee` (`EMPLOYEE_ID`, `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `BIRTHDAY`, `GENDER`, `SALARY_RATE`, `CONTACT_NUMBER`, `EMAIL`, `STREET`, `BARANGAY`, `MUNICIPALITY`, `PROVINCE`, `STATUS`) VALUES
+(1, 'ROMEO JR', 'MONTEALEGRE', 'BARDILLON', '2001-07-30', 'Male', '50.00', '09062267692', 'romsky.bardillon@gmail.com', 'OAK STREET ROSE POINTE SUBD', 'TAGAPO', 'SANTA ROSA', 'LAGUNA', 'ACTIVE'),
+(2, 'CLARENCE', 'MONTEALEGRE', 'MONTEALEGRE', '2023-12-31', 'Male', '45.00', '09654455658', 'clarence@gmail.com', 'OAK STREET ROSE POINTE SUBD', 'TAGAPO', 'SANTA ROSA', 'LAGUNA', 'ACTIVE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salary_history`
+--
+
+CREATE TABLE `salary_history` (
+  `SALARY_HISTORY_ID` int(11) NOT NULL,
+  `EMPLOYEE_ID` int(11) NOT NULL,
+  `SALARY_RATE` decimal(6,2) NOT NULL,
+  `START_DATE` date NOT NULL DEFAULT current_timestamp(),
+  `END_DATE` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `salary_history`
+--
+
+INSERT INTO `salary_history` (`SALARY_HISTORY_ID`, `EMPLOYEE_ID`, `SALARY_RATE`, `START_DATE`, `END_DATE`) VALUES
+(1, 1, '45.00', '2023-05-21', '2023-05-24'),
+(2, 2, '45.00', '2023-05-21', '2023-05-21'),
+(3, 1, '50.00', '2023-05-24', NULL);
 
 --
 -- Indexes for dumped tables
@@ -162,6 +144,13 @@ ALTER TABLE `employee`
   ADD PRIMARY KEY (`EMPLOYEE_ID`);
 
 --
+-- Indexes for table `salary_history`
+--
+ALTER TABLE `salary_history`
+  ADD PRIMARY KEY (`SALARY_HISTORY_ID`),
+  ADD KEY `FK_EMPLOYEE_SALARY_HISTORY` (`EMPLOYEE_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -169,13 +158,19 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EMPLOYEE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `EMPLOYEE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `salary_history`
+--
+ALTER TABLE `salary_history`
+  MODIFY `SALARY_HISTORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -186,6 +181,12 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `attendance`
   ADD CONSTRAINT `FK_EMPLOYEE_ATTENDANCE` FOREIGN KEY (`EMPLOYEE_ID`) REFERENCES `employee` (`EMPLOYEE_ID`);
+
+--
+-- Constraints for table `salary_history`
+--
+ALTER TABLE `salary_history`
+  ADD CONSTRAINT `FK_EMPLOYEE_SALARY_HISTORY` FOREIGN KEY (`EMPLOYEE_ID`) REFERENCES `employee` (`EMPLOYEE_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
