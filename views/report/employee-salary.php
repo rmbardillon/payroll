@@ -70,30 +70,36 @@ $pdf->Ln(1);
 $pdf->SetFont('Arial','B',7);
 
 $pdf->Cell(13,10,'No.',1,0,'C');
-$pdf->Cell(87,10,'Full Name',1,0,'C');
-$pdf->Cell(30,10,'Total Hours Worked',1,0,'C');
-$pdf->Cell(30,10,'Salary Rate',1,0,'C');
-$pdf->Cell(30,10,'Total Salary',1,1,'C');
+$pdf->Cell(60,10,'Full Name',1,0,'C');
+$pdf->Cell(27,10,'Total Hours Worked',1,0,'C');
+$pdf->Cell(20,10,'From Month',1,0,'C');
+$pdf->Cell(20,10,'To Month',1,0,'C');
+$pdf->Cell(25,10,'Salary Rate',1,0,'C');
+$pdf->Cell(25,10,'Total Salary',1,1,'C');
 
 if(isset($_GET['from'])){
     $i = 1;
     foreach($result as $key => $value)
     {
         $pdf->Cell(13,7,$i,1,0,'C');
-        $pdf->Cell(87,7,$value['FULL_NAME'],1,0,'C');
-        $pdf->Cell(30,7,$value['TOTAL_HOURS_WORKED'],1,0,'C');
-        $pdf->Cell(30,7,$value['SALARY_RATE']." Pesos",1,0,'C');
-        $pdf->Cell(30,7,$value['TOTAL_SALARY']." Pesos",1,1,'C');
+        $pdf->Cell(60,7,$value['FULL_NAME'],1,0,'C');
+        $pdf->Cell(27,7,$value['TOTAL_HOURS_WORKED'],1,0,'C');
+        $pdf->Cell(20,7,$value['START_DATE'],1,0,'C');
+        $pdf->Cell(20,7,$value['END_DATE'],1,0,'C');
+        $pdf->Cell(25,7,$value['SALARY_RATE']." Pesos",1,0,'C');
+        $pdf->Cell(25,7,$value['TOTAL_SALARY']." Pesos",1,1,'C');
         $i++;
     }
 } else {
     for ($i = 1; $i <= 10; $i++)
     {
         $pdf->Cell(13,7,$i,1,0,'C');
-        $pdf->Cell(87,7,"value",1,0,'C');
-        $pdf->Cell(30,7,"value",1,0,'C');
-        $pdf->Cell(30,7,"value",1,0,'C');
-        $pdf->Cell(30,7,"value",1,1,'C');
+        $pdf->Cell(60,7,"value",1,0,'C');
+        $pdf->Cell(27,7,"value",1,0,'C');
+        $pdf->Cell(20,7,"value",1,0,'C');
+        $pdf->Cell(20,7,"value",1,0,'C');
+        $pdf->Cell(25,7,"value",1,0,'C');
+        $pdf->Cell(25,7,"value",1,1,'C');
     }
 }
 
